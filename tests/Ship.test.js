@@ -6,4 +6,10 @@ describe("test Ship class", () => {
     ship.hit();
     expect(ship.hits).toEqual(1);
   });
+  it("being sunk", () => {
+    const ship = new Ship(2);
+    ship.hit();
+    ship.hit();
+    expect(ship.sunk).toEqual(true);
+  });
 });
