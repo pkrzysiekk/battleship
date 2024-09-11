@@ -3,7 +3,7 @@ import { Ship } from "../src/classes/Ship";
 
 describe("test GameBoard class", () => {
   describe("test placeShip func", () => {
-    it(" can be placed", () => {
+    it(" can be placed horizontally", () => {
       const board = new GameBoard();
       const obj = new Ship(4);
       board.placeShip(4, [2, 2]);
@@ -11,6 +11,21 @@ describe("test GameBoard class", () => {
       expect(board.board[2][3]).toEqual(obj);
       expect(board.board[2][4]).toEqual(obj);
       expect(board.board[2][5]).toEqual(obj);
+    });
+    it("can be placed vertically", () => {
+      const board = new GameBoard();
+      const obj = new Ship(4);
+      board.placeShip(4, [2, 2], "v");
+      expect(board.board[2][2]).toEqual(obj);
+      expect(board.board[3][2]).toEqual(obj);
+      expect(board.board[4][2]).toEqual(obj);
+      expect(board.board[5][2]).toEqual(obj);
+    });
+    it("can be placed vertically on the edge", () => {
+      const board = new GameBoard();
+      const obj = new Ship(1);
+      board.placeShip(1, [9, 9], "v");
+      expect(board.board[9][9]).toEqual(obj);
     });
     it("checks if ship can be placed", () => {
       const board = new GameBoard();
