@@ -7,6 +7,7 @@ export class GameBoard {
     this.board = this.initializeBoard();
     this.missedHits = [];
     this.hits = [];
+    this.ships = [];
   }
   initializeBoard(w = 10, h = 10, val = "") {
     var arr = [];
@@ -24,6 +25,7 @@ export class GameBoard {
       for (let i = 0; i < shipLength; i++) {
         this.board[cords[0]][cords[1] + i] = shipToPlace;
       }
+      this.ships.push(shipToPlace);
     }
   }
   receiveAttack(cord) {
@@ -36,5 +38,8 @@ export class GameBoard {
         this.missedHits.push(cord);
       }
     }
+  }
+  allSunk() {
+    return !this.ships.some((ship) => ship.sunk == false);
   }
 }

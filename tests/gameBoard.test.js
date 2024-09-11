@@ -30,4 +30,19 @@ describe("test GameBoard class", () => {
       expect(board.missedHits.length).toEqual(0);
     });
   });
+  describe("test allSunk func", () => {
+    it("reports correctly with all ships down", () => {
+      const board = new GameBoard();
+      const obj = new Ship(1);
+      board.placeShip(1, [2, 2]);
+      board.receiveAttack([2, 2]);
+      expect(board.allSunk()).toEqual(true);
+    });
+    it("reports correctly with ships still on board", () => {
+      const board = new GameBoard();
+      const obj = new Ship(1);
+      board.placeShip(1, [2, 2]);
+      expect(board.allSunk()).toEqual(false);
+    });
+  });
 });
