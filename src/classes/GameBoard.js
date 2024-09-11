@@ -1,9 +1,12 @@
-import { canBePlaced } from "../canBePlaced";
+import { canBePlaced } from "../helper-Functions/canBePlaced";
+import { isNewHit } from "../helper-Functions/isNewHit";
 import { Ship } from "./Ship";
 
 export class GameBoard {
   constructor() {
     this.board = this.initializeBoard();
+    this.missedHits = [];
+    this.hits = [];
   }
   initializeBoard(w = 10, h = 10, val = "") {
     var arr = [];
@@ -22,6 +25,16 @@ export class GameBoard {
         this.board[cords[0]][cords[1] + i] = shipToPlace;
       }
     }
-    //this.board[cords[0]][cords[1]] = shipToPlace;
+  }
+  receiveAttack(cord) {
+    if (isNewHit(cord, this.hits, this.missedHits)) {
+      if (this.board[(cord[0], cord[1])] != "") {
+        const ship = this.board[cord[0]][cord[1]];
+        ship.hit();
+        this.hits.push(cord);
+      } else {
+        this.missedHits.push(cord);
+      }
+    }
   }
 }

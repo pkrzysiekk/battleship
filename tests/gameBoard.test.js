@@ -19,4 +19,15 @@ describe("test GameBoard class", () => {
       expect(board.board[9][9]).toEqual("");
     });
   });
+  describe("test receiveHit", () => {
+    it("can be hit", () => {
+      const board = new GameBoard();
+      const obj = new Ship(1);
+      board.placeShip(1, [2, 2]);
+      board.receiveAttack([2, 2]);
+      expect(board.hits.length).toEqual(1);
+      expect(board.hits[0]).toEqual([2, 2]);
+      expect(board.missedHits.length).toEqual(0);
+    });
+  });
 });
