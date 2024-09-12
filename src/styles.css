@@ -1,2 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
+
+:root {
+  --header-color: #dddddd;
+  --header-span-color: #f8f8f8;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--header-color);
+}
+header h4 {
+  font-weight: 400;
+  font-size: 3rem;
+}
+.header-span {
+  background-color: var(--header-span-color);
+  width: 25%;
+  margin: 5px;
+  display: flex;
+  margin-right: 20%;
+}
+footer {
 }
