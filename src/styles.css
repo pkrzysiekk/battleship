@@ -31,5 +31,16 @@ header h4 {
   display: flex;
   margin-right: 20%;
 }
+main {
+  height: auto;
+  height: 100%;
+  display: flex;
+}
+.left,
+.right {
+  width: 50%;
+  height: 100%;
+}
+
 footer {
 }
