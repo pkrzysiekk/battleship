@@ -46,12 +46,21 @@ main {
   width: 50%;
   height: 100%;
 }
+.left span,
+.right span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
 .player-board,
 .computer-board {
   display: grid;
-  grid-template-columns: repeat(10, 33px);
+  grid-template-columns: repeat(11, 33px);
+
   padding-top: 5%;
 }
+
 .box {
   width: 33px;
   height: 33px;
