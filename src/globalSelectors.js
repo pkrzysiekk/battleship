@@ -1,2 +1,2 @@
-const playerDiv = document.querySelector(".left");
-const computerDiv = document.querySelector(".right");
+export const playerDiv = document.querySelector(".left");
+export const computerDiv = document.querySelector(".right");

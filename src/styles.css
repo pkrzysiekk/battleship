@@ -3,6 +3,7 @@
 :root {
   --header-color: #dddddd;
   --header-span-color: #f8f8f8;
+  --board-border-color: #b4b4ff;
 }
 * {
   margin: 0;
@@ -38,9 +39,23 @@ main {
 }
 .left,
 .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
   width: 50%;
   height: 100%;
 }
-
+.player-board,
+.computer-board {
+  display: grid;
+  grid-template-columns: repeat(10, 33px);
+  padding-top: 5%;
+}
+.box {
+  width: 33px;
+  height: 33px;
+  border: 1px solid var(--board-border-color);
+}
 footer {
 }
