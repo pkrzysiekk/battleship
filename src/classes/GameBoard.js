@@ -26,10 +26,20 @@ export class GameBoard {
         let y = cords[1] + i;
 
         if (
-          (y + 1 < this.board.length && this.board[x][y + 1] !== "") ||
+          (y + 1 < this.board[0].length && this.board[x][y + 1] !== "") ||
           (y - 1 >= 0 && this.board[x][y - 1] !== "") ||
           (x + 1 < this.board.length && this.board[x + 1][y] !== "") ||
-          (x - 1 >= 0 && this.board[x - 1][y] !== "")
+          (x - 1 >= 0 && this.board[x - 1][y] !== "") ||
+          (x - 1 >= 0 && y - 1 >= 0 && this.board[x - 1][y - 1] !== "") ||
+          (x - 1 >= 0 &&
+            y + 1 < this.board[0].length &&
+            this.board[x - 1][y + 1] !== "") ||
+          (x + 1 < this.board.length &&
+            y - 1 >= 0 &&
+            this.board[x + 1][y - 1] !== "") ||
+          (x + 1 < this.board.length &&
+            y + 1 < this.board[0].length &&
+            this.board[x + 1][y + 1] !== "")
         ) {
           return false;
         }

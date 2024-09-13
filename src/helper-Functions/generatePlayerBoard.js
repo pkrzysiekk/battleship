@@ -1,6 +1,16 @@
 import { player } from "../globalSelectors";
 import { playerDiv } from "../globalSelectors";
+import { clearPlayerBoard } from "./clearPlayerBoard";
+export var generated = false;
+
 export function generatePlayerBoard() {
+  const existingBoard = document.querySelector(".player-board");
+  const existingInfo = document.querySelector(".info");
+  if (existingBoard) {
+    playerDiv.removeChild(existingBoard);
+    playerDiv.removeChild(existingInfo);
+  }
+
   const playerBoardDiv = document.createElement("div");
   const playerInfo = document.createElement("p");
   playerBoardDiv.classList.add("player-board");
@@ -28,6 +38,7 @@ export function generatePlayerBoard() {
     }
   }
   playerInfo.textContent = "Your board";
-  playerDiv.appendChild(playerBoardDiv);
-  playerDiv.appendChild(playerInfo);
+  playerInfo.classList.add("info");
+  playerDiv.prepend(playerInfo);
+  playerDiv.prepend(playerBoardDiv);
 }

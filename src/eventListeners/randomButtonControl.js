@@ -1,4 +1,6 @@
 import { player } from "../globalSelectors";
+import { clearPlayerBoard } from "../helper-Functions/clearPlayerBoard";
+import { generatePlayerBoard } from "../helper-Functions/generatePlayerBoard";
 import { getRandomCords } from "../helper-Functions/getRandomCords";
 import { resetPlayerBoard } from "../helper-Functions/resetPlayerBoard";
 
@@ -13,5 +15,6 @@ export function randomButtonControl() {
         i--;
       }
     }
+    generatePlayerBoard();
   });
 }
