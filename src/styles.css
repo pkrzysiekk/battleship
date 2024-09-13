@@ -66,5 +66,8 @@ main {
   height: 33px;
   border: 1px solid var(--board-border-color);
 }
+.box-ship {
+  background-color: rgb(0, 119, 255);
+}
 footer {
 }

@@ -1,4 +1,4 @@
-import { computerDiv, playerDiv } from "../globalSelectors";
+import { computerDiv, player, playerDiv } from "../globalSelectors";
 
 export function generateBoards() {
   const playerBoardDiv = document.createElement("div");
@@ -26,6 +26,9 @@ export function generateBoards() {
       const box = document.createElement("div");
       box.classList.add("box");
       box.setAttribute("data-number", `${i}-${j}`);
+      if (player.gameBoard.board[i][j] != "") {
+        box.classList.add("box-ship");
+      }
       playerBoardDiv.appendChild(box);
     }
   }
