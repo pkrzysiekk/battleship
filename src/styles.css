@@ -69,5 +69,20 @@ main {
 .box-ship {
   background-color: rgb(0, 119, 255);
 }
+.buttons-div {
+  padding-top: 2%;
+  display: flex;
+  gap: 1rem;
+}
+.buttons-div button {
+  font-size: 1.2rem;
+  padding: 0.4rem 0.4rem;
+  background-color: var(--header-color);
+  border: none;
+  cursor: pointer;
+}
+.buttons-div button:hover {
+  font-weight: 800;
+}
 footer {
 }
