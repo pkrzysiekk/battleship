@@ -68,7 +68,9 @@ export class GameBoard {
         }
       }
       this.ships.push(shipToPlace);
+      return true;
     }
+    return false;
   }
   receiveAttack(cord) {
     if (isNewHit(cord, this.hits, this.missedHits)) {

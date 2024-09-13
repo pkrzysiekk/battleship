@@ -13,6 +13,7 @@ export function generateControls() {
   startButton.textContent = "Start!";
   startButton.classList.add("start");
   buttonsDiv.classList.add("buttons-div");
+
   buttonsDiv.appendChild(randomButton);
   buttonsDiv.appendChild(manualButton);
   buttonsDiv.appendChild(startButton);
