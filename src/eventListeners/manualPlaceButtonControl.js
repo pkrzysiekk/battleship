@@ -5,6 +5,7 @@ import { resetPlayerBoard } from "../helper-Functions/resetPlayerBoard";
 export let shipsLeftToPlace = 5;
 export function manualPlaceButtonControl() {
   const manualButton = document.querySelector(".manual");
+  const buttonsDiv = document.querySelector(".buttons-div");
   const titleInfo = document.querySelector(".header-span");
   manualButton.addEventListener("click", () => {
     const existingInput = document.querySelector(".manual-input");
@@ -14,7 +15,7 @@ export function manualPlaceButtonControl() {
       const input = document.createElement("input");
       input.classList.add("manual-input");
       input.type = "text";
-      playerDiv.appendChild(input);
+      buttonsDiv.appendChild(input);
       titleInfo.textContent = "Place ship 5x1";
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
