@@ -4,6 +4,7 @@
   --header-color: #dddddd;
   --header-span-color: #f8f8f8;
   --board-border-color: #b4b4ff;
+  --box-color: #0077ff;
 }
 * {
   margin: 0;
@@ -27,9 +28,13 @@ header h4 {
 }
 .header-span {
   background-color: var(--header-span-color);
+  font-size: 1.5rem;
+  font-weight: 400;
   width: 25%;
   margin: 5px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 20%;
 }
 main {
@@ -67,7 +72,7 @@ main {
   border: 1px solid var(--board-border-color);
 }
 .box-ship {
-  background-color: rgb(0, 119, 255);
+  background-color: var(--box-color);
 }
 .buttons-div {
   padding-top: 2%;
@@ -83,6 +88,15 @@ main {
 }
 .buttons-div button:hover {
   font-weight: 800;
+}
+.manual-input {
+  border: none;
+  border-bottom: 2px solid var(--box-color);
+  height: 2rem;
+  width: 6rem;
+}
+.manual-input:focus {
+  outline: none;
 }
 footer {
 }

@@ -1,4 +1,3 @@
-import { canBePlaced } from "../helper-Functions/canBePlaced";
 import { isNewHit } from "../helper-Functions/isNewHit";
 import { Ship } from "./Ship";
 
@@ -26,20 +25,21 @@ export class GameBoard {
         let y = cords[1] + i;
 
         if (
-          (y + 1 < this.board[0].length && this.board[x][y + 1] !== "") ||
-          (y - 1 >= 0 && this.board[x][y - 1] !== "") ||
-          (x + 1 < this.board.length && this.board[x + 1][y] !== "") ||
-          (x - 1 >= 0 && this.board[x - 1][y] !== "") ||
-          (x - 1 >= 0 && y - 1 >= 0 && this.board[x - 1][y - 1] !== "") ||
+          (y + 1 < this.board[0].length && this.board[x][y + 1] !== "") || // prawo
+          (y - 1 >= 0 && this.board[x][y - 1] !== "") || // lewo
+          (x + 1 < this.board.length && this.board[x + 1][y] !== "") || // dół
+          (x - 1 >= 0 && this.board[x - 1][y] !== "") || // góra
+          // Sprawdzanie pól sąsiadujących po skosie
+          (x - 1 >= 0 && y - 1 >= 0 && this.board[x - 1][y - 1] !== "") || // skos w górę w lewo
           (x - 1 >= 0 &&
             y + 1 < this.board[0].length &&
-            this.board[x - 1][y + 1] !== "") ||
+            this.board[x - 1][y + 1] !== "") || // skos w górę w prawo
           (x + 1 < this.board.length &&
             y - 1 >= 0 &&
-            this.board[x + 1][y - 1] !== "") ||
+            this.board[x + 1][y - 1] !== "") || // skos w dół w lewo
           (x + 1 < this.board.length &&
             y + 1 < this.board[0].length &&
-            this.board[x + 1][y + 1] !== "")
+            this.board[x + 1][y + 1] !== "") // skos w dół w prawo
         ) {
           return false;
         }
@@ -64,10 +64,7 @@ export class GameBoard {
 
   placeShip(shipLength, cords, pos = "h") {
     const shipToPlace = new Ship(shipLength);
-    if (
-      canBePlaced(shipLength, cords) &&
-      this.noAdjacentShips(shipLength, cords, pos)
-    ) {
+    if (this.noAdjacentShips(shipLength, cords, pos)) {
       if (pos == "h")
         for (let i = 0; i < shipLength; i++) {
           this.board[cords[0]][cords[1] + i] = shipToPlace;

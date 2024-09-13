@@ -1,7 +1,7 @@
 import { player } from "../globalSelectors";
 import { playerDiv } from "../globalSelectors";
 import { clearPlayerBoard } from "./clearPlayerBoard";
-export var generated = false;
+import { resetPlayerBoard } from "./resetPlayerBoard";
 
 export function generatePlayerBoard() {
   const existingBoard = document.querySelector(".player-board");
