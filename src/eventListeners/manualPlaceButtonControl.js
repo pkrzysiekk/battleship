@@ -29,9 +29,9 @@ export function manualPlaceButtonControl() {
               titleInfo.textContent = `Place ships ${shipsLeftToPlace}x1`;
               generatePlayerBoard();
             }
-            if (placeShip == 0) {
-              titleInfo.textContent = "Ready!";
-            }
+          }
+          if (shipsLeftToPlace == 0) {
+            titleInfo.textContent = "Ready!";
           }
         }
       });
