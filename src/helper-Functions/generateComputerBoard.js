@@ -1,5 +1,11 @@
+import { addEnemyBoxEventHandler } from "../eventListeners/addEnemyBoxEventHandler";
+import { gameStarted } from "../eventListeners/startButtonControl";
 import { computerDiv } from "../globalSelectors";
 export function generateComputerBoard() {
+  const existingBoard = document.querySelector(".computer-board");
+  if (existingBoard) {
+    computerDiv.removeChild(existingBoard);
+  }
   const computerBoardDiv = document.createElement("div");
 
   const computerInfo = document.createElement("p");
@@ -24,6 +30,9 @@ export function generateComputerBoard() {
       box.classList.add("box");
       box.setAttribute("data-number", `${i}-${j}`);
       computerBoardDiv.appendChild(box);
+      if (gameStarted) {
+        addEnemyBoxEventHandler(box);
+      }
     }
   }
   computerInfo.textContent = "Computer board";

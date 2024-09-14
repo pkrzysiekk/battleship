@@ -98,5 +98,10 @@ main {
 .manual-input:focus {
   outline: none;
 }
+.hit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 footer {
 }
