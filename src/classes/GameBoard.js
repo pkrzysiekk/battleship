@@ -81,7 +81,7 @@ export class GameBoard {
   }
   receiveAttack(cord) {
     if (isNewHit(cord, this.hits, this.missedHits)) {
-      if (this.board[(cord[0], cord[1])] != "") {
+      if (this.board[cord[0]][cord[1]] != "") {
         const ship = this.board[cord[0]][cord[1]];
         ship.hit();
         this.hits.push(cord);

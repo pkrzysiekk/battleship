@@ -1,14 +1,17 @@
 import { addEnemyBoxEventHandler } from "../eventListeners/addEnemyBoxEventHandler";
 import { gameStarted } from "../eventListeners/startButtonControl";
-import { computerDiv } from "../globalSelectors";
+import { computerDiv, computerPlayer } from "../globalSelectors";
 export function generateComputerBoard() {
   const existingBoard = document.querySelector(".computer-board");
+  const existingInfo = document.querySelector(".computer-info");
   if (existingBoard) {
     computerDiv.removeChild(existingBoard);
+    computerDiv.removeChild(existingInfo);
   }
   const computerBoardDiv = document.createElement("div");
 
   const computerInfo = document.createElement("p");
+  computerInfo.classList.add("computer-info");
 
   computerBoardDiv.classList.add("computer-board");
 
@@ -30,6 +33,9 @@ export function generateComputerBoard() {
       box.classList.add("box");
       box.setAttribute("data-number", `${i}-${j}`);
       computerBoardDiv.appendChild(box);
+      if (computerPlayer.gameBoard.board[i][j] != "") {
+        box.classList.add("box-ship");
+      }
       if (gameStarted) {
         addEnemyBoxEventHandler(box);
       }
